@@ -1,0 +1,6 @@
+vendor/*
+.DS_Store*
+log/*
+composer.lock
+src/master.pid
+/.idea

@@ -1,0 +1,32 @@
+{
+    "name": "swimtobird/queued-jobs",
+    "description": "a queued jobs base on swoole",
+    "keywords": ["swoole", "job", "queue"],
+    "homepage": "https://github.com/swimtobird/swoole-jobs",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0",
+        "ext-swoole": ">=1.8.9",
+        "ext-redis": "*",
+        "predis/predis": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "kcloze",
+            "email": "pei.greet@qq.com"
+        },
+        {
+            "name": "swimtobird",
+            "email": "swimtobird@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Swimtobird\\Jobs\\": "src"
+        }
+    },
+    "bin": [
+        "swoole-jobs"
+    ]
+    
+}
