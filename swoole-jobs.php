@@ -1,11 +1,32 @@
 <?php
 
-define('APP_PATH', __DIR__);
-//ini_set('default_socket_timeout', -1);
-date_default_timezone_set('Asia/Shanghai');
+define('APP_PATH', getcwd());
 
-require APP_PATH . '/vendor/autoload.php';
-$config = require_once APP_PATH . '/config.php';
+set_time_limit(0);
+// autoload composer
+foreach ([
+             __DIR__ . '/../../autoload.php',
+             __DIR__ . '/../vendor/autoload.php',
+             __DIR__ . '/vendor/autoload.php'
+         ] as $value) {
+    if (file_exists($value)) {
+        define('COMPOSER_INSTALL', $value);
+        break;
+    }
+}
+
+if (!defined('COMPOSER_INSTALL')) {
+    fwrite(STDERR,
+        'You need to set up the project dependencies using the following commands:' . PHP_EOL .
+        'wget http://getcomposer.org/composer.phar' . PHP_EOL .
+        'php composer.phar install' . PHP_EOL
+    );
+}
+
+include COMPOSER_INSTALL;
+
+$config = require_once APP_PATH . '/config/queue.php';
+
 
 $console = new Swimtobird\Jobs\Console($config);
 $console->run();
