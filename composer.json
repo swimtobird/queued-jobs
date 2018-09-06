@@ -1,0 +1,33 @@
+{
+    "name": "swimtobird/queued-jobs",
+    "description": "a queued jobs base on swoole",
+    "keywords": ["swoole", "job", "queue"],
+    "homepage": "https://github.com/swimtobird/swoole-jobs",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1",
+        "symfony/console": "^4.1",
+        "monolog/monolog": "^1.23"
+    },
+    "authors": [
+        {
+            "name": "kcloze",
+            "email": "pei.greet@qq.com"
+        },
+        {
+            "name": "swimtobird",
+            "email": "swimtobird@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "eaglewu/swoole-ide-helper": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Swimtobird\\Jobs\\": "src"
+        }
+    },
+    "bin": [
+        "console"
+    ]
+}
